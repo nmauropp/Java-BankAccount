@@ -18,14 +18,26 @@ public class TestAccountMethods {
 					"/" + c1.getRegisteredDay() + "/" + c1.getRegisteredYear());
 	}
 	
+	public static void testAccountQuantity(Account c1) {
+		System.out.println("The amount of accounts registered is " + c1.getTotalAccounts());
+	}
+	
 	public static void main (String[] args) {
 		Account c1;
+		Account c2;
+		Account c3;
 		
 		c1 = new Account();
 		c1.setOwnerName("Mauro");
-		c1.setBalance(500);
+		c1.deposit(500);
 		
 		testDate(c1);
+		
+		c2 = new Account();
+		c3 = new Account();
+		testAccountQuantity(c1);
+		
+		
 		
 	}
 }

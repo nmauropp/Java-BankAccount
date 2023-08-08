@@ -11,7 +11,13 @@ public class Account {
 	private String agency;
 	private double balance = 0.0;
 	private Date registerDate = new Date();
+	/* Class attribute */
+	private static int totalAccounts;
 	
+	/** Account Constructor */
+	Account() {
+		Account.totalAccounts = Account.totalAccounts + 1;
+	}
 	
 	/** Method to receive owner's name from current account 
 	 * @returns String owner's name
@@ -42,10 +48,6 @@ public class Account {
 		return this.balance;
 	}
 	
-	public void setBalance(double newBalance) {
-		this.balance = newBalance;
-	}
-	
 	public int getRegisteredDay() {
 		return this.registerDate.day;
 	}
@@ -57,6 +59,11 @@ public class Account {
 	public int getRegisteredYear() {
 		return this.registerDate.year;
 	}
+	
+	public int getTotalAccounts() {
+		return Account.totalAccounts;
+	}
+	
 	public String getAllAccountData() {
 		return (this.getOwnerName() + " " + this.getNumber() + " " +
 					this.agency + " " + this.getBalance() + " " + this.registerDate);
@@ -73,7 +80,8 @@ public class Account {
 	 * 
 	 * @param amount
 	 * @returns boolean - true if balance if greater or equal than
-	 * amount
+	 * 		amount
+	 *
 	 */
 	public boolean withdraw(double amount) {
 		if(this.getBalance() >= amount) {
@@ -82,7 +90,7 @@ public class Account {
 			return true;
 		} else {
 			System.out.println("Insuficient balance to withdraw " +
-						"from " + this.getOwnerName() + "'s Account.");
+						"from " + this.getOwnerName() + "'s account.");
 			return false;
 		}
 	}
