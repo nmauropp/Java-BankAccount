@@ -3,14 +3,37 @@ package bankAccountPackage;
  * Bank Account created to perform simple bank actions, as withdraw,
  * deposit and transference.
  * 
- * @author MauroNascimento
+ * @author Mauro Nascimento
  */
 public class Account {
-	public String ownerName;
-	public int number;
-	public String agency;
-	public double balance = 0.0;
-	public Date registerDate = new Date();
+	private String ownerName;
+	private int number;
+	private String agency;
+	private double balance = 0.0;
+	private Date registerDate = new Date();
+	
+	
+	/** Method to receive owner's name from current account 
+	 * @returns String owner's name
+	 */
+	public String getOwnerName() {
+		return this.ownerName;
+	}
+	
+	public void setOwnerName(String newName) {
+		this.ownerName = newName;
+	}
+	
+	/** Method to receive account's number 
+	 * @returns int number
+	 */
+	public int getNumber() {
+		return this.number;
+	}
+	
+	public void setNumber(int newNumber) {
+		this.number = newNumber;
+	}
 	
 	/** Method to receive balance from current account
 	 * @returns boolean balance
@@ -19,16 +42,31 @@ public class Account {
 		return this.balance;
 	}
 	
+	public void setBalance(double newBalance) {
+		this.balance = newBalance;
+	}
+	
+	public int getRegisteredDay() {
+		return this.registerDate.day;
+	}
+	
+	public String getRegisteredMonth() {
+		return this.registerDate.month;
+	}
+	
+	public int getRegisteredYear() {
+		return this.registerDate.year;
+	}
 	public String getAllAccountData() {
-		return (this.ownerName + " " + this.number + " " +
-					this.agency + " " + this.balance + " " + this.registerDate);
+		return (this.getOwnerName() + " " + this.getNumber() + " " +
+					this.agency + " " + this.getBalance() + " " + this.registerDate);
 	}
 	
 	/** Method to print current balance
 	 */
 	public void printBalance() {
-		System.out.println(this.ownerName + "'s balance is R$" +
-					this.balance);
+		System.out.println(this.getOwnerName() + "'s balance is R$" +
+					this.getBalance());
 	}
 	
 	/** Method to withdraw money from the current account
@@ -38,13 +76,13 @@ public class Account {
 	 * amount
 	 */
 	public boolean withdraw(double amount) {
-		if(this.balance >= amount) {
+		if(this.getBalance() >= amount) {
 			this.balance = this.balance - amount;
 			System.out.println("Successful withdrawal!");
 			return true;
 		} else {
 			System.out.println("Insuficient balance to withdraw " +
-						"from " + this.ownerName + "'s Account.");
+						"from " + this.getOwnerName() + "'s Account.");
 			return false;
 		}
 	}
@@ -72,8 +110,8 @@ public class Account {
 	 *@returns income
 	 **/
 	public double getIncome() {
-		double income = this.balance * 0.1;
-		System.out.println(this.ownerName + "'s income is R$" + 
+		double income = this.getBalance() * 0.1;
+		System.out.println(this.getOwnerName() + "'s income is R$" + 
 					income);
 		return income;
 	}

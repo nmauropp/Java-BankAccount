@@ -5,6 +5,6 @@ import java.time.Month;
 public class Date {
 	LocalDate currentDate = LocalDate.now();
 	int day = currentDate.getDayOfMonth();
-	int month = currentDate.getMonthValue();
+	String month = currentDate.getMonth().name();
 	int year = currentDate.getYear();
 }

@@ -14,16 +14,16 @@ public class TestAccountMethods {
 	}
 	
 	public static void testDate(Account c1) {
-		System.out.println("The Account is registered since: " + c1.registerDate.month +
-					"/" + c1.registerDate.day + "/" + c1.registerDate.year);
+		System.out.println(c1.getOwnerName() + "'s account is registered since: " + c1.getRegisteredMonth() +
+					"/" + c1.getRegisteredDay() + "/" + c1.getRegisteredYear());
 	}
 	
 	public static void main (String[] args) {
 		Account c1;
 		
 		c1 = new Account();
-		c1.ownerName = "Mauro";
-		c1.balance = 500;
+		c1.setOwnerName("Mauro");
+		c1.setBalance(500);
 		
 		testDate(c1);
 		
