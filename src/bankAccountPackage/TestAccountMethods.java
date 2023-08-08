@@ -13,23 +13,19 @@ public class TestAccountMethods {
 		c1.printBalance(); // print balances after deposit
 	}
 	
+	public static void testDate(Account c1) {
+		System.out.println("The Account is registered since: " + c1.registerDate.month +
+					"/" + c1.registerDate.day + "/" + c1.registerDate.year);
+	}
+	
 	public static void main (String[] args) {
 		Account c1;
-		Account c2;
 		
 		c1 = new Account();
 		c1.ownerName = "Mauro";
 		c1.balance = 500;
 		
-		c2 = new Account();
-		c2.ownerName = "Jose";
-		c2.balance = 1000;
-		
-		c1.printBalance();
-		c2.printBalance();
-		c1.transfer(c2, 1000);
-		c1.printBalance();
-		c2.printBalance();
+		testDate(c1);
 		
 	}
 }

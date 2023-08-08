@@ -10,13 +10,18 @@ public class Account {
 	public int number;
 	public String agency;
 	public double balance = 0.0;
-	public String registerDate;
+	public Date registerDate = new Date();
 	
 	/** Method to receive balance from current account
 	 * @returns boolean balance
 	 */
 	public double getBalance() {
 		return this.balance;
+	}
+	
+	public String getAllAccountData() {
+		return (this.ownerName + " " + this.number + " " +
+					this.agency + " " + this.balance + " " + this.registerDate);
 	}
 	
 	/** Method to print current balance
