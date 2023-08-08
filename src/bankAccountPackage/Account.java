@@ -15,8 +15,9 @@ public class Account {
 	private static int totalAccounts;
 	
 	/** Account Constructor */
-	Account() {
+	Account(String ownerName) {
 		Account.totalAccounts = Account.totalAccounts + 1;
+		this.ownerName = ownerName;
 	}
 	
 	/** Method to receive owner's name from current account 
