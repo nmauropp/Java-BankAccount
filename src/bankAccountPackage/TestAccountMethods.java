@@ -27,7 +27,8 @@ public class TestAccountMethods {
 		Account c2;
 		Account c3;
 		
-		c1 = new Account("Mauro");
+		c1 = new Account();
+		c1.setOwnerName("Mauro");
 		c1.deposit(500);
 		
 		testDate(c1);
@@ -35,9 +36,8 @@ public class TestAccountMethods {
 		c2 = new Account("Jose");
 		c3 = new Account("Maria");
 		testAccountQuantity(c1);
-		testDate(c2);
-		testDate(c3);
-
+		System.out.println(c1.getOwnerName() + ": " + c1.getId());
+		System.out.println(c2.getOwnerName() + ": " + c2.getId());
 		
 		
 		

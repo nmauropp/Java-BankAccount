@@ -6,6 +6,7 @@ package bankAccountPackage;
  * @author Mauro Nascimento
  */
 public class Account {
+	private int id;
 	private String ownerName;
 	private int number;
 	private String agency;
@@ -13,13 +14,28 @@ public class Account {
 	private Date registerDate = new Date();
 	/* Class attribute */
 	private static int totalAccounts;
+	private static int idCounter;
 	
 	/** Account Constructor */
+	Account() {
+		Account.idCounter = Account.idCounter + 1;
+		this.id = Account.idCounter;
+		Account.totalAccounts = Account.totalAccounts + 1;
+	}
+	/** Account Constructor with parameter name */
 	Account(String ownerName) {
+		Account.idCounter = Account.idCounter + 1;
+		this.id = Account.idCounter;
 		Account.totalAccounts = Account.totalAccounts + 1;
 		this.ownerName = ownerName;
 	}
 	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return this.id;
+	}
 	/** Method to receive owner's name from current account 
 	 * @returns String owner's name
 	 */
